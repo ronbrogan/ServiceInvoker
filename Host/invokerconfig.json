@@ -1,0 +1,15 @@
+﻿{
+  "watches": [
+    {
+      "type": "dotNetCore",
+      "path": "..\\..\\CoreAPI\\CoreAPI\\",
+      "environment": {
+          "ASPNETCORE_URLS": "http://0.0.0.0:5123"
+      }
+    }
+  ],
+  "options": {
+    "autoWatchFromRegistry": true,
+    "registryUri": "localhost:6666"
+  }
+}
