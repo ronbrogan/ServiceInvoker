@@ -1,4 +1,4 @@
-﻿using Host.Core;
+﻿using InvokerCore;
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
@@ -10,42 +10,19 @@ using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace Host.Watchers
+namespace DotNetCoreWatcher
 {
-    public class DotNetCoreWatcher : IWatcher<DotNetCoreWatcher>
+    [RegisterWatcher(Name = "dotNetCore")]
+    public class DotNetCoreWatcher : Watcher
     {
-        private Watch Watch;
-        private ConcurrentDictionary<Watch, Process> RunningProcesses { get; set; }
         private FileSystemWatcher Watcher { get; set; }
-        private Action DisplayUpdate { get; set; }
-        private Action InvokeCallback { get; set; }
-        private Func<bool> ShouldSkip { get; set; }
 
-        public DotNetCoreWatcher(Watch watch, ConcurrentDictionary<Watch, Process> runningProcesses)
+        public DotNetCoreWatcher(Watch watch, ConcurrentDictionary<Watch, Process> runningProcesses) : base(watch, runningProcesses)
         {
-            Watch = watch;
-            RunningProcesses = runningProcesses;
+            
         }
 
-        public DotNetCoreWatcher OnInvoke(Action invoke)
-        {
-            InvokeCallback = invoke;
-            return this;
-        }
-
-        public DotNetCoreWatcher DebounceWith(Func<bool> debounce)
-        {
-            ShouldSkip = debounce;
-            return this;
-        }
-
-        public DotNetCoreWatcher DisplayChanges(Action update)
-        {
-            DisplayUpdate = update;
-            return this;
-        }
-
-        public void StartWatching()
+        public override void StartWatching()
         {
             var actualPath = Path.GetDirectoryName(Path.GetFullPath(Watch.Path));
             var binPath = CsprojHelper.GetBinaryPath(actualPath);

@@ -1,4 +1,4 @@
-﻿using Host.Core;
+﻿using InvokerHost.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,8 +8,9 @@ using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.ComponentModel;
 using System.Net;
+using InvokerCore;
 
-namespace Host
+namespace InvokerHost
 {
     public class ServiceInvokerConsoleDisplay : IServiceInvokerOutput
     {

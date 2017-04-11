@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Linq;
 
-namespace Host.Core
+namespace DotNetCoreWatcher
 {
     public static class CsprojHelper
     {

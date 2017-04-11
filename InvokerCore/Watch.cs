@@ -1,14 +1,15 @@
-﻿using System;
+﻿using InvokerCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Host.Core
+namespace InvokerCore
 {
     public class Watch
     {
-        public WatchType Type { get; set; }
+        public string Type { get; set; }
         public string Path { get; set; }
         public string Args { get; set; }
-        public Dictionary<string,string> Environment { get; set; }
+        public IDictionary<string,string> Environment { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Host
+namespace InvokerHost
 {
     public static class JsonConfiguration
     {

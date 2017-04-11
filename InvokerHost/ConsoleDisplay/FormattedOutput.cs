@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Host.Core
+namespace InvokerHost.Core
 {
     public class FormattedOutput
     {

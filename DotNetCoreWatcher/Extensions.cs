@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Host
+namespace DotNetCoreWatcher
 {
     public static class Extensions
     {
