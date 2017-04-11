@@ -12,6 +12,9 @@ namespace DotNetCoreWatcher
         {
             var binaryPath = "";
 
+            if (!Directory.Exists(projectFolder))
+                throw new Exception("Could not locate specified folder: " + projectFolder);
+
             var csproj = new DirectoryInfo(projectFolder).GetFiles("*.csproj", SearchOption.TopDirectoryOnly)[0];
 
             if (csproj == null)
